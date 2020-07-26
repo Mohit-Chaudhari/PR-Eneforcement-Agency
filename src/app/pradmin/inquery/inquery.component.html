@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-auto">
+            <br/><h3 class="text-center text-secondary">PR ADMIN INQUERIES</h3><br/>
+            <table class="table table-responsive table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email id</th>
+                      <th scope="col">Mobile Number</th>
+                      <th scope="col">Inquery</th>
+                      <th scope="col">Remove Inquery</th>
+                    </tr>
+                </thead>
+                <tbody>       
+                    <ng-container *ngFor="let Inq of InqArr; let i = index">
+                        <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{Inq.FullName}}</td>
+                            <td>{{Inq.Email}}</td>
+                            <td>{{Inq.Mobile}}</td>
+                            <td>{{Inq.Inquery}}</td>
+                            <td><button (click)="onDelete(Inq.$key)" class="btn btn-danger">Remove</button></td>
+                        </tr>
+                    </ng-container>                     
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div><br/>

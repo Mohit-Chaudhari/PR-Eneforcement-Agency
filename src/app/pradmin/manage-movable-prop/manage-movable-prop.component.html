@@ -1,0 +1,72 @@
+<br/>
+<div class="container-fluid" style="margin: 1%;">
+    <div class="row">
+        <div class="col-md-4 card">
+
+            <br/><h3 class="text-center text-secondary card-title">PR Enforcement Agency : Manage movable properties</h3><hr/>
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label>Brief description : </label>
+                        <input formControlName="BriefDescription" [ngClass]="{'is-invalid': form.controls.BriefDescription.touched && form.controls.BriefDescription.errors}" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Area : </label>
+                        <input formControlName="Area" [ngClass]="{'is-invalid': form.controls.Area.touched && form.controls.Area.errors}" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Reserve price : </label>
+                        <input formControlName="ReservePrice" [ngClass]="{'is-invalid': form.controls.ReservePrice.touched && form.controls.ReservePrice.errors}" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Possesion : </label>
+                        <input formControlName="Possesion" [ngClass]="{'is-invalid': form.controls.Possesion.touched && form.controls.Possesion.errors}" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-group text-center">
+                        <button class="btn btn-success" [disabled]="!form.valid">Add movable property</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="alert alert-info"  *ngIf="showSuccessMessage">
+               Movable property added into system.
+            </div>
+
+        </div>
+        <div class="col-auto">
+            <br/><h3 class="text-center text-secondary">Movable properties</h3><br/>
+            <table class="table table-responsive table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Brief Description</th>
+                      <th scope="col">Area</th>
+                      <th scope="col">Reserve Price</th>
+                      <th scope="col">Possesion</th>
+                      <th scope="col">Remove Inquery</th>
+                    </tr>
+                </thead>
+                <tbody>       
+                    <ng-container *ngFor="let Move of MovableArr; let i = index">
+                        <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{Move.BriefDescription}}</td>
+                            <td>{{Move.Area}}</td>
+                            <td>{{Move.ReservePrice}}</td>
+                            <td>{{Move.Possesion}}</td>
+                            <td><button (click)="onDelete(Move.$key)" class="btn btn-danger">Remove</button></td>
+                        </tr>
+                    </ng-container>                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br/>

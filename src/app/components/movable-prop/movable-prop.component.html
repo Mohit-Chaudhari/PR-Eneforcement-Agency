@@ -1,0 +1,31 @@
+<div class="container-fluid" style="margin: 1%;">
+    <div class="row justify-content-center">
+        <div class="col-md-1"></div>
+        <div class="col-auto">
+            <br/><h3 class="text-center text-secondary">Movable properties</h3><br/>
+            <table class="table table-responsive table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Brief Description</th>
+                      <th scope="col">Area</th>
+                      <th scope="col">Reserve Price</th>
+                      <th scope="col">Possesion</th>
+                    </tr>
+                </thead>
+                <tbody>       
+                    <ng-container *ngFor="let Move of MovableArr; let i = index">
+                        <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{Move.BriefDescription}}</td>
+                            <td>{{Move.Area}}</td>
+                            <td>{{Move.ReservePrice}}</td>
+                            <td>{{Move.Possesion}}</td>
+                        </tr>
+                    </ng-container>                     
+                </tbody>
+            </table>
+        </div>
+    <div class="col-md-1"></div>
+    </div>
+</div>

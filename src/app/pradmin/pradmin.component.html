@@ -1,0 +1,50 @@
+<br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-8 card">
+            <br/><h3 class="text-center text-secondary card-title">PR Enforcement Agency : Admin Login</h3><hr/>
+
+            <div class="card-body">
+
+                <div class="alert alert-danger"  *ngIf="showFailureMessage">
+                   Invalid Username or Password...!!!
+                </div>
+
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                
+                            <!--Username-->
+                            <div class="form-group">
+                                <label>Username : </label>
+                                <input formControlName="UserName" type="email" class="form-control" placeholder="example@gmail.com" [ngClass]="{'is-invalid':form.controls.UserName.touched && form.controls.UserName.errors}">
+                                <div class="invalid-feedback" *ngIf="form.controls.UserName.touched && form.controls.UserName.errors">
+                                    <label *ngIf="form.controls.UserName.touched && form.controls.UserName.errors.required">Username field is required.</label>
+                                </div>
+                            </div>
+            
+                            <!--Password-->
+                            <div class="form-group">
+                                <label>Password : </label>
+                                <input formControlName="Password" class="form-control" type="password" placeholder="Enter Password" [ngClass]="{'is-invalid':form.controls.Password.touched && form.controls.Password.errors}">
+                                <div class="invalid-feedback">
+                                    <label>Password field is required.</label>
+                                </div>
+                            </div>
+            
+                            <!--Submit-->
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-success" [disabled]="!form.valid">Login</button>
+                            </div>
+                        </form>
+                        <div class="alert alert-info"  *ngIf="showSuccessMessage">
+                            Logged into PR Enforcement Agency admin panel.
+                        </div>
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<br/>
